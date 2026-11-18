@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YARD — Arena Duel</title>
+  <meta name="description" content="YARD is a one-on-one 3D arena shooter. Arrow keys to move and turn, space to shoot. One computer rival." />
+  <meta name="theme-color" content="#08090d" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%2308090d' width='32' height='32'/%3E%3Ccircle cx='16' cy='16' r='5.5' fill='none' stroke='%23e4b15a' stroke-width='2'/%3E%3Cpath stroke='%23e5483b' stroke-width='2' d='M16 3v6M16 23v6M3 16h6M23 16h6'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="c" tabindex="-1" aria-label="YARD arena"></canvas>
+  <div id="frame" aria-hidden="true"></div>
+  <div id="damage" aria-hidden="true"></div>
+  <div id="banner" aria-hidden="true"></div>
+
+  <div id="hud" hidden>
+    <header>
+      <div class="who you">
+        <div class="label"><span>YOU</span><b id="hp-you">100</b></div>
+        <div class="bar"><i id="bar-you"></i></div>
+      </div>
+      <div class="score">
+        <span>DUELS</span>
+        <strong id="score">0 — 0</strong>
+        <em id="compass">N</em>
+      </div>
+      <div class="who foe">
+        <div class="label"><span>WARDEN</span><b id="hp-foe">100</b></div>
+        <div class="bar"><i id="bar-foe"></i></div>
+        <div class="lock" title="Warden aim"><i id="lock"></i></div>
+      </div>
+    </header>
+    <div id="crosshair" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <p class="hint"><span id="mute" hidden>MUTED · </span>ARROWS MOVE / TURN · SPACE SHOOTS · STEP OFF THE RED BEAM · M MUTE · ESC PAUSE</p>
+  </div>
+
+  <div id="overlay" class="cinematic" data-outcome="menu">
+    <div class="panel">
+      <p class="kicker" id="kicker">3D ARENA DUEL</p>
+      <h1>YARD</h1>
+      <p id="result" aria-live="polite"></p>
+      <p id="blurb">One pit, one rival. Turn with the arrows, walk the lane, and drop Warden before the return shot lands.</p>
+      <ul class="keys" id="help">
+        <li><kbd>↑</kbd><kbd>↓</kbd><span>Move</span></li>
+        <li><kbd>←</kbd><kbd>→</kbd><span>Turn</span></li>
+        <li><kbd>Space</kbd><span>Shoot</span></li>
+      </ul>
+      <button id="play" type="button">ENTER THE PIT</button>
+      <p id="record">YOU 0 · 0 WARDEN</p>
+    </div>
+  </div>
+
+  <script src="vendor/three.min.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
